@@ -53,23 +53,6 @@ def sendpost(url, data):
     return get_data
 
 
-def get_company(url, logistic_code):
-    request_data1 = {"LogisticCode": logistic_code}
-    request_data2 = json.dumps(request_data1, sort_keys=True)
-    data_sign = datasign(request_data2)
-    post_data = {
-        'RequestData': request_data2,
-        'EBusinessID': EBusinessID,
-        'RequestType': '2002',
-        'DataSign': data_sign,
-        'DataType': '2'
-    }
-    json_data = sendpost(url, post_data)
-    get_data = json.loads(json_data)
-    print(get_data)
-    return get_data
-
-
 def get_traces(url, logistic_code, shipper_code):
     request_data1 = {
         "OrderCode": "",
@@ -93,7 +76,6 @@ def get_traces(url, logistic_code, shipper_code):
 def recognise(logistic_code):
     """输出数据"""
     url = "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
-    #shipper = get_company(url, logistic_code)
     if_success = 0
     for i in shipper_code:
         data = get_traces(
@@ -131,7 +113,7 @@ def recognise(logistic_code):
 
 
 if __name__ == '__main__':
-    print("欢迎使用快递信息查询系统\n(暂不支持顺丰、百世、申通、快递信息查询)")
+    print("欢迎使用快递信息查询系统\n(暂不支持顺丰、百世、申通、快递信息查询)")#api原因
     while True:
         code = input("请输入快递单号(输入esc退出)：")
         code = code.strip()
