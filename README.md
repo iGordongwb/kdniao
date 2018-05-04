@@ -6,3 +6,6 @@ kdniao
 * `快递鸟api`
     * [快递鸟官网](http://www.kdniao.com/)
     * [api文档](http://www.kdniao.com/api-track)
+
+## 版本
+v0.2.0
