@@ -2,7 +2,7 @@
 '''
  * ┏┓      ┏┓
  *┏┛┻━━━━━━┛┻┓
- *┃          ┃
+ *┃          ┃ 　
  *┃     ━    ┃
  *┃   ┳┛ ┗┳  ┃
  *┃          ┃
@@ -28,6 +28,8 @@ import base64
 
 EBusinessID = "1326300"
 APIKey = "a91e07e9-a641-4479-b5ef-f3a0e0b68207"
+shipper_code = ("ZTOKY","STO","YTO","YD","YZPY","EMS","HHTT","JD","QFKD","GTO","UC","DBL","FAST","ZJS")
+shipper_name = ("中通快递","申通快递","圆通速递","韵达速递","邮政快递包裹","EMS","天天快递","京东物流","全峰快递","国通快递","优速快递","德邦","快捷快递","宅急送")
 
 
 def datasign(jsonstr):
@@ -91,19 +93,18 @@ def get_traces(url, logistic_code, shipper_code):
 def recognise(logistic_code):
     """输出数据"""
     url = "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
-    shipper = get_company(url, logistic_code)
-    if not any(shipper['Shippers']):
-        print("未查找到快递信息，请检查快递单号是否有误！")
-    else:
-        print("已查到该", str(shipper['Shippers'][0]['ShipperName']) + "(" +
-              str(shipper['Shippers'][0]['ShipperCode']) + ")", logistic_code)
+    #shipper = get_company(url, logistic_code)
+    if_success = 0
+    for i in shipper_code:
         data = get_traces(
             url,
             logistic_code,
-            shipper['Shippers'][0]['ShipperCode'])
+            i)
         if not data['Success'] or not any(data['Traces']):
-            print(data['Reason'])
+            continue
         else:
+            print ("已查到该"+shipper_name[shipper_code.index(i)])
+            if_success = 1
             state = data['State']
             state_str = "无轨迹"
             if state == "1":
@@ -124,12 +125,16 @@ def recognise(logistic_code):
                     item['AcceptStation'])
                 i += 1
                 print("\n")
-    pass
+            break
+    if if_success==0:
+        print("未查找到快递信息，请检查快递单号是否有误")
 
 
-while True:
-    code = input("请输入快递单号(输入esc退出)：")
-    code = code.strip()
-    if code == "esc":
-        break
-    recognise(code)
+if __name__ == '__main__':
+    print("欢迎使用快递信息查询系统\n(暂不支持顺丰、百世、申通、快递信息查询)")
+    while True:
+        code = input("请输入快递单号(输入esc退出)：")
+        code = code.strip()
+        if code == "esc":
+            break
+        recognise(code)
