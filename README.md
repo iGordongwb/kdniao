@@ -11,7 +11,7 @@
 
 ## 使用方法
 * 直接运行kdniao.py
-* `或` 通过gui.py调用kdniao.recognise函数
+* `或` 通过gui.py调用kdniao.recognise函数<br>
 `注:`只可用作研究学习
 
 ## 当前版本
