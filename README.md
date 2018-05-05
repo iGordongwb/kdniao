@@ -13,7 +13,7 @@
 * 直接运行kdniao.py
 * `或` 通过gui.py调用kdniao.recognise函数<br>
 <br>
-`注:`只可用作研究学习
+注:只可用作研究学习
 
 ## 当前版本
 `v0.2.0`<br>
