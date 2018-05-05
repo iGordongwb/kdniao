@@ -46,7 +46,7 @@ class MainWindow(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.aboutQt(self, "About Qt")
 
     def selectAbout(self):
-        QtWidgets.QMessageBox.about(self, "About", "可根据快递单号查询快递信息\n\n\nCopyright 2018 Gordongwb.\nAll Right Reserved.")
+        QtWidgets.QMessageBox.about(self, "About", "根据快递单号查询快递信息\n\n\nCopyright 2018 Gordongwb.\nAll Right Reserved.")
 
     def createMenus(self):
         """setting of menubar and toolbar"""
@@ -77,7 +77,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def window_size_info(self):
         """basic window's settings"""
-        self.resize(500, 600)
+        self.resize(800, 300)
         self.center()
         self.setWindowTitle('Sample')
         self.setWindowIcon(QtGui.QIcon(r'ex.ico'))
