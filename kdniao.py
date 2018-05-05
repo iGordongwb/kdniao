@@ -99,20 +99,24 @@ def recognise(logistic_code):
                 state_str = "问题件"
             print("当前状态：" + state_str)
             print("-----------------------------------")
+            result = "已查到该"+shipper_name[shipper_code.index(i)]+"\n"+"当前状态：" + state_str+"\n"+"-----------------------------------"+"\n"
             i = 1
             for item in data['Traces']:
                 print(
                     i,
                     item['AcceptTime'],
                     item['AcceptStation'])
+                result = result+str(i)+item['AcceptTime']+item['AcceptStation']+"\n"
                 i += 1
                 print("\n")
             break
     if if_success==0:
-        print("未查找到快递信息，请检查快递单号是否有误")
+        result="未查找到快递信息，请检查快递单号是否有误"
+        #print("未查找到快递信息，请检查快递单号是否有误")
+    return result
 
 
-if __name__ == '__main__':
+def main():
     print("欢迎使用快递信息查询系统\n(暂不支持顺丰、百世、申通、快递信息查询)")#api原因
     while True:
         code = input("请输入快递单号(输入esc退出)：")
@@ -120,3 +124,6 @@ if __name__ == '__main__':
         if code == "esc":
             break
         recognise(code)
+
+if __name__ == '__main__':
+    main()
