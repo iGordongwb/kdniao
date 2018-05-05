@@ -8,4 +8,4 @@ kdniao
     * [api文档](http://www.kdniao.com/api-track)
 
 ## 版本
-v0.2.0
+v0.1.1
