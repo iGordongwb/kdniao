@@ -46,7 +46,7 @@ class MainWindow(QtWidgets.QMainWindow):
         QtWidgets.QMessageBox.aboutQt(self, "About Qt")
 
     def selectAbout(self):
-        QtWidgets.QMessageBox.about(self, "About", "`````")
+        QtWidgets.QMessageBox.about(self, "About", "可根据快递单号查询快递信息\n\n\nCopyright 2018 Gordongwb.\nAll Right Reserved.")
 
     def createMenus(self):
         """setting of menubar and toolbar"""

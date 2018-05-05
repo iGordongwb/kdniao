@@ -112,7 +112,7 @@ def recognise(logistic_code):
             break
     if if_success==0:
         result="未查找到快递信息，请检查快递单号是否有误"
-        #print("未查找到快递信息，请检查快递单号是否有误")
+        print("未查找到快递信息，请检查快递单号是否有误")
     return result
 
 
