@@ -7,5 +7,13 @@ kdniao
     * [快递鸟官网](http://www.kdniao.com/)
     * [api文档](http://www.kdniao.com/api-track)
 
-## 版本
-v0.2.0
+##使用方法
+* 直接运行kdniao.py
+* `或` 通过gui.py调用kdniao.recognise函数
+
+## 当前版本
+`v0.2.0`
+###更新内容
+`v0.1.0`  使用快递鸟`单号识别`与`即时查询`接口查询快递信息
+`v0.1.1`  使用穷举法解决了快递鸟`单号识别`失败率高的问题
+`v0.2.0`  简易的GUI
